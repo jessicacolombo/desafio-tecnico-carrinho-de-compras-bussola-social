@@ -41,5 +41,14 @@ class AppServiceProvider extends ServiceProvider
                 'credit_card' => $app->make(CreditCardPaymentService::class),
             ]);
         });
+
+        $this->app->bind(PurchaseRepositoryInterface::class, PurchaseRepository::class);
+        $this->app->bind(PurchaseServiceInterface::class, function ($app) {
+            return new PurchaseService(
+                $app->make(PurchaseRepositoryInterface::class),
+                $app->make(ProductRepositoryInterface::class),
+                $app->make(PaymentMethodServiceInterface::class)
+            );
+        });
     }
 }
