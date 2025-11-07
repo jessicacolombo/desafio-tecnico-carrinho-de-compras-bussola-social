@@ -34,5 +34,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ProductServiceInterface::class, ProductService::class);
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+
+        $this->app->bind(PaymentMethodServiceInterface::class, function ($app) {
+            return collect([
+                'pix' => $app->make(PixPaymentService::class),
+                'credit_card' => $app->make(CreditCardPaymentService::class),
+            ]);
+        });
     }
 }
