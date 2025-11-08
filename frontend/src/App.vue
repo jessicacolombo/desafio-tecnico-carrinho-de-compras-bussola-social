@@ -7,7 +7,7 @@ import FooterComponent from '@/components/Footer/FooterComponent.vue'
   <div id="app">
     <header-component />
 
-    <main class="max-w-7xl mx-auto min-h-screen ">
+    <main class="max-w-7xl mx-auto min-h-screen pt-40">
       <router-view />
     </main>
 
