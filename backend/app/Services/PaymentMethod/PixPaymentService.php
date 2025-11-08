@@ -50,6 +50,10 @@ class PixPaymentService implements PaymentMethodServiceInterface
 
     protected function calculateTotal(float $amount): void
     {
+        if ($amount < 0) {
+            throw new \InvalidArgumentException("Valor do pagamento inválido.");
+        }
+        
         $this->setAmount($amount);
 
         $this->setDiscount();

@@ -19,6 +19,14 @@ class CreditCardPaymentService implements PaymentMethodServiceInterface
 
     public function processPayment(float $amount, int $installments): Payment
     {
+        if ($installments <= 0 || $installments > 12) {
+            throw new \InvalidArgumentException("Número de parcelas inválido.");
+        }
+
+        if ($amount < 0) {
+            throw new \InvalidArgumentException("Valor do pagamento inválido.");
+        }
+
         $this->calculateTotal($amount, $installments);
 
         return new Payment(
@@ -82,7 +90,9 @@ class CreditCardPaymentService implements PaymentMethodServiceInterface
                 $this->calculateAmountWithInterest($this->amount)
             );
 
-            $this->setInstallmentValue($this->total / $this->installments);
+            $this->setInstallmentValue(
+                round($this->total / $this->installments)
+            );
         }
     }
 
@@ -98,7 +108,7 @@ class CreditCardPaymentService implements PaymentMethodServiceInterface
 
     protected function calculateAmountWithInterest(float $amount): float
     {
-        $amountWithInterest = $amount * (1 + $this->interestRate) ** $this->installments;
+        $amountWithInterest = round($amount * (1 + $this->interestRate) ** $this->installments);
 
         $this->setTaxes($amountWithInterest - $amount);
 

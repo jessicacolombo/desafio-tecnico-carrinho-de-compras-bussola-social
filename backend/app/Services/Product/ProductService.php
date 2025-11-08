@@ -16,6 +16,10 @@ class ProductService implements ProductServiceInterface
 
     public function findById(int $id)
     {
+        if ($id <= 0) {
+            throw new \InvalidArgumentException("ID do produto inválido.");
+        }
+
         return $this->repository->findById($id);
     }
 }
