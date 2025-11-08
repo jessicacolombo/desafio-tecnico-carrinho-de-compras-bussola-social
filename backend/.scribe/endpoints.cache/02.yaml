@@ -23,9 +23,7 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
+    queryParameters:
       amount:
         custom: []
         name: amount
@@ -50,9 +48,11 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanBodyParameters:
+    cleanQueryParameters:
       amount: 150
       payment_method: credit_card
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -

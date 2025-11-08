@@ -52,11 +52,11 @@ class StorePaymentCalculationRequest extends FormRequest
     }
 
     /**
-     * Parâmetros do corpo da requisição para documentação.
+     * Parâmetros de query da requisição para documentação.
      *
      * @return array<string, mixed>
      */
-    public function bodyParameters(): array
+    public function queryParameters(): array
     {
         return [
             'amount' => [

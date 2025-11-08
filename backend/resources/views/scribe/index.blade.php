@@ -392,14 +392,9 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/payment-calculation" \
+    --get "http://localhost:8000/api/payment-calculation?amount=150&amp;payment_method=credit_card" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"amount\": 150,
-    \"payment_method\": \"credit_card\"
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -407,20 +402,21 @@ Must be one of:
     "http://localhost:8000/api/payment-calculation"
 );
 
+const params = {
+    "amount": "150",
+    "payment_method": "credit_card",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-let body = {
-    "amount": 150,
-    "payment_method": "credit_card"
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -594,34 +590,34 @@ Você pode verificar o console das Ferramentas de Desenvolvedor para informaçõ
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Parâmetros do Corpo</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Parâmetros de Consulta</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="amount"                data-endpoint="GETapi-payment-calculation"
                value="150"
-               data-component="body">
+               data-component="query">
     <br>
 <p>Valor total da compra. Must be at least 0. Example: <code>150</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="payment_method"                data-endpoint="GETapi-payment-calculation"
                value="credit_card"
-               data-component="body">
+               data-component="query">
     <br>
 <p>Método de pagamento escolhido. Example: <code>credit_card</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>credit_card</code></li> <li><code>pix</code></li></ul>
-        </div>
-        </form>
+            </div>
+                </form>
 
                 <h1 id="produtos">Produtos</h1>
 
