@@ -8,7 +8,7 @@ use Illuminate\Validation\Rules\Enum;
 class StorePurchaseRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determina se o usuário está autorizado a fazer esta requisição.
      *
      * @return bool
      */
@@ -18,7 +18,7 @@ class StorePurchaseRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Regras de validação para a requisição.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
@@ -38,7 +38,7 @@ class StorePurchaseRequest extends FormRequest
     }
 
     /**
-     * Get the error messages for the defined validation rules.
+     * Mensagens de erro personalizadas para as regras de validação.
      *
      * @return array<string, string>
      */
@@ -62,6 +62,32 @@ class StorePurchaseRequest extends FormRequest
             'installments.integer' => 'O número de parcelas deve ser um número inteiro.',
             'installments.min' => 'O número de parcelas deve ser pelo menos 1.',
             'installments.max' => 'O número de parcelas não pode exceder 12.',
+        ];
+    }
+
+    /**
+     * Parâmetros do corpo da requisição para documentação.
+     *
+     * @return array<string, mixed>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'products' => [
+                'description' => 'Lista de produtos a serem comprados.',
+                'example' => [
+                    ['id' => 1, 'quantity' => 2],
+                    ['id' => 3, 'quantity' => 1],
+                ],
+            ],
+            'installments' => [
+                'description' => 'Número de parcelas para o pagamento.',
+                'example' => 3,
+            ],
+            'payment_method' => [
+                'description' => 'Método de pagamento escolhido.',
+                'example' => 'credit_card',
+            ],
         ];
     }
 }

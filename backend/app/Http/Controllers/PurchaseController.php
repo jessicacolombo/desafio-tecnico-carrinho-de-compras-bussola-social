@@ -10,7 +10,10 @@ class PurchaseController extends Controller
     public function __construct(protected PurchaseServiceInterface $service) {}
 
     /**
-     * Store a newly created resource in storage.
+     * Registrar uma nova compra
+     * @group Compras
+     *
+     * @responseFile 201 storage/scribe/responses/PurchaseController/store.json
      */
     public function store(StorePurchaseRequest $request)
     {

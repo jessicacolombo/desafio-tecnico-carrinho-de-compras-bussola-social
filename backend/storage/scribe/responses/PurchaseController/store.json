@@ -1,0 +1,32 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "quantity": 100
+        }
+    ],
+    "payment": {
+        "method": "credit_card",
+        "installments": 12,
+        "amount": {
+            "value": 2999000,
+            "formatted": "29.990,00"
+        },
+        "taxes": {
+            "value": 380348,
+            "formatted": "3.803,48"
+        },
+        "total": {
+            "value": 3379348,
+            "formatted": "33.793,48"
+        },
+        "discount": {
+            "value": 0,
+            "formatted": "0,00"
+        },
+        "installmentValue": {
+            "value": 281612,
+            "formatted": "2.816,12"
+        }
+    }
+}

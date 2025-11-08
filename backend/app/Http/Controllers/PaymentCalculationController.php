@@ -12,7 +12,7 @@ class PaymentCalculationController extends Controller
      * Calcula as opções de pagamento com base no método selecionado.
      *
      * @group Pagamento
-     * @responseFile storage/responses/PaymentCalculationController/calculate.json
+     * @responseFile storage/scribe/responses/PaymentCalculationController/calculate.json
      */
     public function calculate(StorePaymentCalculationRequest $request)
     {

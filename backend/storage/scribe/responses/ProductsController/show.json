@@ -1,0 +1,9 @@
+{
+    "id": 3,
+    "name": "Calça Jeans Slim",
+    "price": {
+        "value": 15990,
+        "formatted": "159,90"
+    },
+    "description": "Calça jeans com corte slim, estilo e conforto para qualquer ocasião."
+}

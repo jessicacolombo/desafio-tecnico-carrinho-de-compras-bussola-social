@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Tênis Esportivo Runner",
+        "price": 29990,
+        "description": "Tênis ideal para corridas e atividades físicas, com amortecimento avançado."
+    },
+    {
+        "id": 2,
+        "name": "Camiseta Básica Preta",
+        "price": 4990,
+        "description": "Camiseta de algodão confortável, perfeita para o dia a dia."
+    },
+    {
+        "id": 3,
+        "name": "Calça Jeans Slim",
+        "price": 15990,
+        "description": "Calça jeans com corte slim, estilo e conforto para qualquer ocasião."
+    },
+    {
+        "id": 4,
+        "name": "Moletom Casual Cinza",
+        "price": 12990,
+        "description": "Moletom macio e quente, ideal para dias mais frios."
+    },
+    {
+        "id": 5,
+        "name": "Boné Aba Reta",
+        "price": 7990,
+        "description": "Boné estiloso com aba reta, perfeito para completar seu look."
+    }
+]

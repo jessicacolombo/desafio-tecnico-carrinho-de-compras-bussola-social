@@ -1,0 +1,156 @@
+name: Pagamento
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/payment-calculation
+    metadata:
+      custom: []
+      groupName: Pagamento
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Calcula as opções de pagamento com base no método selecionado.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        custom: []
+        name: amount
+        description: 'Valor total da compra. Must be at least 0.'
+        required: true
+        example: 150
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: 'Método de pagamento escolhido.'
+        required: true
+        example: credit_card
+        type: string
+        enumValues:
+          - credit_card
+          - pix
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      amount: 150
+      payment_method: credit_card
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |
+          {
+              "payment_method": "credit_card",
+              "original_amount": 2000,
+              "options": [
+                  {
+                      "installments": 1,
+                      "installment_value": 1800,
+                      "taxes": 0,
+                      "discount": 200,
+                      "total_amount": 1800
+                  },
+                  {
+                      "installments": 2,
+                      "installment_value": 1020,
+                      "taxes": 40,
+                      "discount": 0,
+                      "total_amount": 2040
+                  },
+                  {
+                      "installments": 3,
+                      "installment_value": 687,
+                      "taxes": 61,
+                      "discount": 0,
+                      "total_amount": 2061
+                  },
+                  {
+                      "installments": 4,
+                      "installment_value": 520,
+                      "taxes": 81,
+                      "discount": 0,
+                      "total_amount": 2081
+                  },
+                  {
+                      "installments": 5,
+                      "installment_value": 420,
+                      "taxes": 102,
+                      "discount": 0,
+                      "total_amount": 2102
+                  },
+                  {
+                      "installments": 6,
+                      "installment_value": 353,
+                      "taxes": 123,
+                      "discount": 0,
+                      "total_amount": 2123
+                  },
+                  {
+                      "installments": 7,
+                      "installment_value": 306,
+                      "taxes": 144,
+                      "discount": 0,
+                      "total_amount": 2144
+                  },
+                  {
+                      "installments": 8,
+                      "installment_value": 270,
+                      "taxes": 166,
+                      "discount": 0,
+                      "total_amount": 2166
+                  },
+                  {
+                      "installments": 9,
+                      "installment_value": 243,
+                      "taxes": 187,
+                      "discount": 0,
+                      "total_amount": 2187
+                  },
+                  {
+                      "installments": 10,
+                      "installment_value": 220,
+                      "taxes": 209,
+                      "discount": 0,
+                      "total_amount": 2209
+                  },
+                  {
+                      "installments": 11,
+                      "installment_value": 202,
+                      "taxes": 231,
+                      "discount": 0,
+                      "total_amount": 2231
+                  },
+                  {
+                      "installments": 12,
+                      "installment_value": 187,
+                      "taxes": 254,
+                      "discount": 0,
+                      "total_amount": 2254
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
